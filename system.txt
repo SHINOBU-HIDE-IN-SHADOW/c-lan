@@ -1,0 +1,108 @@
+create table Албан_тушаал
+(ID int not null primary key identity,
+ Албан_тушаал varchar(50) not null unique
+)
+create table Үндсэн_файлын_төрөл
+(ID int not null primary key identity,
+төрөл varchar(20)unique
+)
+create table Хэрэглэгч
+(ID int not null primary key identity,
+овог varchar(20) not null,
+нэр varchar(20) not null,
+ албан_тушаал int foreign key references Албан_тушаал(ID) on update cascade,
+ нэвтрэх_нэр as CONCAT(нэр, ID),
+ нууц_код varchar(30) not null,
+ цээж_зураг varchar(60),
+бүртгэсэн_хугацаа datetime not null default GETDATE()
+)
+create table Файл
+(ID int not null primary key identity,
+нэр varchar(100),
+ төрөл int foreign key references Үндсэн_файлын_төрөл(ID),
+ байршил varchar(100) not null
+)
+create table Админ
+(ID int not null primary key identity,
+ Админ int foreign key references Хэрэглэгч(ID) unique
+)
+create table Групп
+(ID int not null primary key identity,
+нэр varchar(20) not NULL,
+ хувийн_код int not null unique,
+ үүссэн_хугацаа datetime not null default GETDATE()
+)
+create table Чаннэл
+(ID int not null primary key identity,
+нэр varchar(20) not NULL,
+ хувийн_код int not null unique,
+ үүссэн_хугацаа datetime not null default GETDATE()
+)
+create table Оролчогч_тоо_групп
+(ID int not null primary key identity,
+групп int not null foreign key references Групп(ID) on update cascade on delete cascade unique,
+ оролчогч_тоо int not null
+)
+create table Оролчогч_тоо_чаннэл
+(ID int not null primary key identity,
+чаннэл int not null foreign key references Чаннэл(ID) on update cascade on delete cascade unique,
+ оролчогч_тоо int not null
+)
+create table Чаннэл_Хэрэглэгч
+(ID int not null primary key identity,
+хэрэглэгч int not null foreign key references Хэрэглэгч(ID) on update cascade on delete cascade,
+чаннэл int not null foreign key references Чаннэл(ID) on update cascade on delete cascade
+)
+create table Групп_Хэрэглэгч
+(ID int not null primary key identity,
+хэрэглэгч int not null foreign key references Хэрэглэгч(ID) on update cascade on delete cascade,
+групп int not null foreign key references Групп(ID) on update cascade on delete cascade
+)
+create table Хариуцагч
+(ID int not null primary key identity,
+хариуцагч int not null foreign key references Чаннэл_Хэрэглэгч(ID) on update cascade on delete cascade unique
+)
+create table Чаннэл_Файл
+(ID int not null primary key identity,
+чаннэл int not null foreign key references Чаннэл(ID) on update No action on delete no action,
+ хэрэглэгч int not null foreign key references Хэрэглэгч(ID) on update No action on delete no action,
+ файл int not null foreign key references Файл(ID) on update No action on delete no action,
+ үүссэн_хугацаа datetime not null default GETDATE()
+)
+create table Групп_Файл
+(ID int not null primary key identity,
+групп int not null foreign key references Групп(ID) on update No action on delete no action,
+ хэрэглэгч int not null foreign key references Хэрэглэгч(ID) on update No action on delete no action,
+ файл int not null foreign key references Файл(ID) on update No action on delete no action,
+ үүссэн_хугацаа datetime not null default GETDATE()
+)
+create table Групп_Мессеж
+(ID int not null primary key identity,
+групп int foreign key references Групп(ID) on update No action on delete no action,
+хэрэглэгч int not null foreign key references Хэрэглэгч(ID) on update No action on delete no action,
+ мессеж varchar(350),
+ үүссэн_хугацаа datetime not null default GETDATE()
+)
+create table Чаннэл_Мессеж
+(ID int not null primary key identity,
+чаннэл int not null foreign key references Чаннэл(ID) on update No action on delete no action,
+хэрэглэгч int not null foreign key references Хэрэглэгч(ID) on update No action on delete no action,
+ мессеж varchar(350),
+ үүссэн_хугацаа datetime not null default GETDATE()
+)
+create table Устгагдсан_Групп_Мессеж
+(ID int not null primary key identity,
+Устгагдсан int not null foreign key references Групп_Мессеж(ID) on update No action on delete no action unique
+)
+create table Устгагдсан_Чаннэл_Мессеж
+(ID int not null primary key identity,
+Устгагдсан int not null foreign key references Чаннэл_Мессеж(ID) on update No action on delete no action unique
+)
+create table Устгагдсан_Групп_Файл
+(ID int not null primary key identity,
+Устгагдсан int not null foreign key references Групп_Файл(ID) on update No action on delete no action unique
+)
+create table Устгагдсан_Чаннэл_Файл
+(ID int not null primary key identity,
+Устгагдсан int not null foreign key references Чаннэл_Файл(ID) on update No action on delete no action unique
+)

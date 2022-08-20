@@ -1,0 +1,46 @@
+INSERT INTO bar (description, foo_id) VALUES
+    ( 'testing',     (SELECT id from foo WHERE type='blue') ),
+    ( 'another row', (SELECT id from foo WHERE type='red' ) );
+Tested at DB-Fiddle
+
+Another way, with shorter syntax if you have a lot of values to insert:
+DECLARE @OrderId int;
+insert into tblOrder(OrderName) Values ('OrderOne');
+
+SET @OrderId = SCOPE_IDENTITY();
+insert into tblCustomer(OrderId, CustomerName) values (@OrderId ,'CustomerOne');
+WITH ins (description, type) AS
+( VALUES
+    ( 'more testing',   'blue') ,
+    ( 'yet another row', 'green' )
+)  
+INSERT INTO bar
+   (description, foo_id) 
+SELECT 
+    ins.description, foo.id
+FROM 
+  foo JOIN ins
+    ON ins.type = foo.type ;
+	
+WITH ins (төрөл, байршил) AS
+( VALUES
+    ( 'MP4',   'C:\files\001.mp4') ,
+    ( 'MP4', 'C:\files\002.mp4' ),
+ ( 'Jpg', 'C:\files\001.jpg' ),
+ ( 'Png', 'C:\files\001.Png' )
+ ,( 'MP3', 'C:\files\001.MP3' )
+)  
+INSERT INTO Файл
+SELECT 
+    ins.төрөл, Үндсэн_файлын_төрөл.ID
+FROM 
+  Үндсэн_файлын_төрөл JOIN ins
+    ON ins.төрөл = Үндсэн_файлын_төрөл.төрөл ;
+	
+	
+	VALUES
+    ( 'MP4',   'C:\files\001.mp4') ,
+    ( 'MP4', 'C:\files\002.mp4' ),
+ ( 'Jpg', 'C:\files\001.jpg' ),
+ ( 'Png', 'C:\files\001.Png' ),
+ ( 'MP3', 'C:\files\001.MP3' )

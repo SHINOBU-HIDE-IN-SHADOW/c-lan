@@ -1,0 +1,73 @@
+select c.хувийн_код,c.нэр,h.ID,h.нэр,f.нэр,f.байршил
+FROM Групп_Файл i
+INNER JOIN Групп c ON i.групп=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+INNER JOIN Файл f ON i.файл=f.ID
+;
+select c.хувийн_код,c.нэр,h.ID,h.нэр,i.мессеж
+FROM Групп_Мессеж i
+INNER JOIN Групп c ON i.групп=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+;
+
+select c.хувийн_код,c.нэр,h.ID,h.нэр,f.нэр,f.байршил
+FROM Чаннэл_Файл i
+INNER JOIN Чаннэл c ON i.чаннэл=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+INNER JOIN Файл f ON i.файл=f.ID
+;
+select c.хувийн_код,c.нэр,h.ID,h.нэр,i.мессеж
+FROM Чаннэл_Мессеж i
+INNER JOIN Чаннэл c ON i.чаннэл=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+;
+select c.хувийн_код,c.нэр,h.ID,h.нэр
+FROM Чаннэл_Хэрэглэгч i
+INNER JOIN Чаннэл c ON i.чаннэл=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID;
+
+select c.хувийн_код,c.нэр,h.ID,h.нэр
+FROM Групп_Хэрэглэгч i
+INNER JOIN Групп c ON i.Групп=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID;
+
+select c.хувийн_код,c.нэр,h.ID,h.нэр
+FROM Чаннэл_Хэрэглэгч i
+INNER JOIN Чаннэл c ON i.чаннэл=c.ID
+
+select c.хувийн_код,c.нэр,h.ID,h.нэр,f.нэр,f.байршил
+FROM Групп_Файл i
+  INNER JOIN Групп c ON i.групп=c.ID
+  INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+  INNER JOIN Файл f ON i.файл=f.ID
+  inner join Устгагдсан_Групп_Файл x on x.Устгагдсан=i.ID;
+  
+select c.хувийн_код,c.нэр,h.ID,h.нэр,i.мессеж
+FROM Групп_Мессеж i
+INNER JOIN Групп c ON i.групп=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+  inner join Устгагдсан_Групп_Мессеж x on x.Устгагдсан=i.ID;
+  
+  select c.хувийн_код,c.нэр,h.ID,h.нэр,f.нэр,f.байршил
+FROM Чаннэл_Файл i
+  INNER JOIN Чаннэл c ON i.чаннэл=c.ID
+  INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+  INNER JOIN Файл f ON i.файл=f.ID
+  inner join Устгагдсан_Чаннэл_Файл x on x.Устгагдсан=i.ID;
+  
+select c.хувийн_код,c.нэр,h.ID,h.нэр,i.мессеж
+FROM Чаннэл_Мессеж  i
+INNER JOIN Чаннэл c ON i.чаннэл=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+  inner join Устгагдсан_Чаннэл_Мессеж x on x.Устгагдсан=i.ID;
+  
+  select c.хувийн_код,c.нэр,h.ID,h.нэр
+FROM Чаннэл_Хэрэглэгч i
+INNER JOIN Чаннэл c ON i.чаннэл=c.ID
+INNER JOIN Хэрэглэгч h ON i.хэрэглэгч=h.ID
+INNER JOIN Хариуцагч x ON x.хариуцагч=i.ID
+;
+select c.хувийн_код,c.нэр,
+FROM Админ i
+INNER JOIN Хэрэглэгч h ON i.Админ=h.ID
+;

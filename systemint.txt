@@ -1,0 +1,94 @@
+INSERT INTO Албан_тушаал
+VALUES ('Захирал'),('Меннежэр'),('Лого Дизейнэр'),('UI Дизейнэр'),('Зурагчин'),('3D Зурагчин'),('3D Дизейнэр'),('2D Дизейнэр'),('Мессенжер Дизейнэр'),('Видео Дизейнэр'),('Барилга Зурагчин'),('Барилга Дизейнэр'),('Ахлах Дизейнэр'),('Ахлах Зурагчин'),('Орлох захирал')
+
+INSERT INTO Үндсэн_файлын_төрөл
+VALUES ('Jpg'),('Png'),('MP4'),('MP3'),('Gif')
+
+INSERT INTO Хэрэглэгч(овог,нэр,албан_тушаал,нууц_код,цээж_зураг)
+VALUES ('Батчулуун','Бат-Өлзий',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='Захирал'),'454255432','C:\Pic\124.jpg'),('Түмэнболд','Туяацэцэ',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='Зурагчин'),'76545345','C:\Pic\004.jpg'),('Туяацэцэ','Түмэнболд',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='Меннежэр'),'047675asdq','C:\Pic\007.jpg'),('Өлзий','Батчулуун',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='Лого Дизейнэр'),'07578786','C:\Pic\027.jpg'),('Туяа','Бат',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='3D Зурагчин'),'dqsd46','C:\Pic\0qe5.jpg'),('Туяацэцэ','Батэрдэн',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='3D Дизейнэр'),'dqs216','C:\Pic\0q1.jpg'),('Цэцэг','Цэцэг',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='2D Дизейнэр'),'dq310','C:\Pic\0q0548.jpg'),('Мөнхцэцэг','Батөр',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='Мессенжер Дизейнэр'),'dd338','C:\Pic\0qe4.jpg'),('Батцэцэ','Бат',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='Видео Дизейнэр'),'dqsd41','C:\Pic\0qe4.jpg'),('Туяацэцэг','Бат',(SELECT ID from Албан_тушаал WHERE Албан_тушаал='Барилга Зурагчин'),'dqsd41','C:\Pic\0qe4.jpg')
+
+INSERT INTO Файл
+VALUES ( '001.mp4',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='MP4'),   'C:\files\001.mp4') ,
+    ('002.mp4' ,(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='MP4'), 'C:\files\002.mp4' ),
+ ( '001.jpg',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='Jpg'), 'C:\files\001.jpg' ),
+ ( '001.Png',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='Png'), 'C:\files\001.Png' ),
+ ( '001.MP3',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='MP3'), 'C:\files\001.MP3' ),
+ ( '002.MP3',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='MP3'), 'C:\files\002.MP3' ),
+ ( '003.MP3',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='MP3'), 'C:\files\003.MP3' ),
+ ( '004.MP3',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='MP3'), 'C:\files\004.MP3' ),
+ ( '005.MP3',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='MP3'), 'C:\files\005.MP3' ),
+ ( '002.Png',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='Png'), 'C:\files\002.Png' ),
+ ( '002.jpg',(SELECT ID from Үндсэн_файлын_төрөл WHERE төрөл='Jpg'), 'C:\files\002.jpg' )
+ 
+INSERT INTO Админ
+VALUES ((SELECT ID from Хэрэглэгч WHERE нэр='Түмэнболд')),((SELECT ID from Хэрэглэгч WHERE нэр='Бат-Өлзий'))
+
+INSERT INTO Групп(нэр,хувийн_код)
+VALUES ('group1',1),('group2',2),('group3',3),('group4',4),('group5',5),('group6',6),('group7',7),('group8',8),('group9',9),('group10',10),('group11',11)
+
+INSERT INTO Чаннэл(нэр,хувийн_код)
+VALUES ('channel1',1),('channel2',2),('channel3',3),('channel4',4),('channel5',5),('channel6',6),('channel7',7),('channel8',8),('channel9',9),('channel10',10),('channel11',11)
+
+INSERT INTO Оролчогч_тоо_групп
+VALUES ((SELECT ID from Групп WHERE нэр='group1'),0),((SELECT ID from Групп WHERE нэр='group2'),0),((SELECT ID from Групп WHERE нэр='group3'),0),((SELECT ID from Групп WHERE нэр='group4'),0),((SELECT ID from Групп WHERE нэр='group5'),0),((SELECT ID from Групп WHERE нэр='group6'),0),((SELECT ID from Групп WHERE нэр='group7'),0),((SELECT ID from Групп WHERE нэр='group8'),0),((SELECT ID from Групп WHERE нэр='group9'),0),((SELECT ID from Групп WHERE нэр='group10'),0),((SELECT ID from Групп WHERE нэр='group11'),0)
+
+INSERT INTO Оролчогч_тоо_чаннэл
+VALUES ((SELECT ID from Чаннэл WHERE нэр='channel1'),0),((SELECT ID from Чаннэл WHERE нэр='channel2'),0),((SELECT ID from Чаннэл WHERE нэр='channel3'),0),((SELECT ID from Чаннэл WHERE нэр='channel4'),0),((SELECT ID from Чаннэл WHERE нэр='channel5'),0),((SELECT ID from Чаннэл WHERE нэр='channel6'),0),((SELECT ID from Чаннэл WHERE нэр='channel7'),0),((SELECT ID from Чаннэл WHERE нэр='channel8'),0),((SELECT ID from Чаннэл WHERE нэр='channel9'),0),((SELECT ID from Чаннэл WHERE нэр='channel10'),0),((SELECT ID from Чаннэл WHERE нэр='channel11'),0)
+
+INSERT INTO Чаннэл_Хэрэглэгч
+VALUES ((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel1')),((SELECT ID from Хэрэглэгч WHERE ID='2'),(SELECT ID from Чаннэл WHERE нэр='channel1')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel1')),((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel2')),((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3')),((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel4')),((SELECT ID from Хэрэглэгч WHERE ID='2'),(SELECT ID from Чаннэл WHERE нэр='channel5')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel6')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel7')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel8')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel9')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel10')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel11')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Чаннэл WHERE нэр='channel11')),((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel10')),((SELECT ID from Хэрэглэгч WHERE ID='2'),(SELECT ID from Чаннэл WHERE нэр='channel11'))
+
+INSERT INTO Групп_Хэрэглэгч
+VALUES ((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group1')),((SELECT ID from Хэрэглэгч WHERE ID='2'),(SELECT ID from Групп WHERE нэр='group1')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group1')),((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group2')),((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group3')),((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group4')),((SELECT ID from Хэрэглэгч WHERE ID='2'),(SELECT ID from Групп WHERE нэр='group2')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group2')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group3')),((SELECT ID from Хэрэглэгч WHERE ID='4'),(SELECT ID from Групп WHERE нэр='group4')),((SELECT ID from Хэрэглэгч WHERE ID='2'),(SELECT ID from Групп WHERE нэр='group5')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group6')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group7')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group8')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group9')),((SELECT ID from Хэрэглэгч WHERE ID='3'),(SELECT ID from Групп WHERE нэр='group10'))
+
+INSERT INTO Хариуцагч
+VALUES ((SELECT ID from Чаннэл_Хэрэглэгч WHERE хэрэглэгч=1)),((SELECT ID from Чаннэл_Хэрэглэгч WHERE хэрэглэгч=2)),((SELECT ID from Чаннэл_Хэрэглэгч WHERE хэрэглэгч=3)),((SELECT ID from Чаннэл_Хэрэглэгч WHERE хэрэглэгч=4)),((SELECT ID from Чаннэл_Хэрэглэгч WHERE хэрэглэгч=5))
+
+INSERT INTO Чаннэл_Файл(хэрэглэгч,чаннэл,файл)
+VALUES ((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel1'),(SELECT ID from Файл WHERE нэр='001.mp4')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel2'),(SELECT ID from Файл WHERE нэр='001.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='001.mp4')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel4'),(SELECT ID from Файл WHERE нэр='001.mp4')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='001.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='002.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='003.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='004.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='005.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='001.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='002.Png')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel3'),(SELECT ID from Файл WHERE нэр='002.jpg')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel4'),(SELECT ID from Файл WHERE нэр='002.Png')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Чаннэл WHERE нэр='channel4'),(SELECT ID from Файл WHERE нэр='002.jpg'))
+
+INSERT INTO Групп_Файл(хэрэглэгч,групп,файл)
+VALUES ((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group1'),(SELECT ID from Файл WHERE нэр='001.mp4')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group1'),(SELECT ID from Файл WHERE нэр='002.mp4')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group11'),(SELECT ID from Файл WHERE нэр='001.jpg')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group2'),(SELECT ID from Файл WHERE нэр='001.Png')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group3'),(SELECT ID from Файл WHERE нэр='001.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group3'),(SELECT ID from Файл WHERE нэр='002.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group3'),(SELECT ID from Файл WHERE нэр='003.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group3'),(SELECT ID from Файл WHERE нэр='004.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group2'),(SELECT ID from Файл WHERE нэр='005.MP3')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group3'),(SELECT ID from Файл WHERE нэр='002.Png')),
+((SELECT ID from Хэрэглэгч WHERE ID='1'),(SELECT ID from Групп WHERE нэр='group4'),(SELECT ID from Файл WHERE нэр='002.jpg'))
+
+INSERT INTO Групп_Мессеж(групп,мессеж)
+VALUES ((SELECT ID from Групп WHERE нэр='group1'),'1 дахь груп'),((SELECT ID from Групп WHERE нэр='group2'),'2 дахь груп'),
+((SELECT ID from Групп WHERE нэр='group3'),'3 дахь груп'),((SELECT ID from Групп WHERE нэр='group4'),'4 дахь груп'),((SELECT ID from Групп WHERE нэр='group5'),'5 дахь груп'),((SELECT ID from Групп WHERE нэр='group6'),'6 дахь груп'),((SELECT ID from Групп WHERE нэр='group7'),'7 дахь груп'),((SELECT ID from Групп WHERE нэр='group8'),'8 дахь груп'),((SELECT ID from Групп WHERE нэр='group9'),'9 дахь груп'),((SELECT ID from Групп WHERE нэр='group10'),'10 дахь груп'),((SELECT ID from Групп WHERE нэр='group10'),'11 дахь груп')
+
+INSERT INTO Чаннэл_Мессеж(чаннэл,мессеж)
+VALUES ((SELECT ID from Чаннэл WHERE нэр='channel1'),'1 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel2'),'2 дахь Чаннэл'),
+((SELECT ID from Чаннэл WHERE нэр='channel2'),'3 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel4'),'4 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel5'),'5 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel6'),'6 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel7'),'7 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel8'),'8 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel9'),'9 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel10'),'10 дахь Чаннэл'),((SELECT ID from Чаннэл WHERE нэр='channel11'),'11 дахь Чаннэл')
+
+INSERT INTO Устгагдсан_Групп_Мессеж
+VALUES ((SELECT ID from Групп_Мессеж WHERE ID=1)),((SELECT ID from Групп_Мессеж WHERE ID=2)),((SELECT ID from Групп_Мессеж WHERE ID=11)),((SELECT ID from Групп_Мессеж WHERE ID=3))
+
+INSERT INTO Устгагдсан_Чаннэл_Мессеж
+VALUES ((SELECT ID from Чаннэл_Мессеж WHERE ID=1)),((SELECT ID from Чаннэл_Мессеж WHERE ID=11)),((SELECT ID from Чаннэл_Мессеж WHERE ID=2))
+
+INSERT INTO Устгагдсан_Групп_Файл
+VALUES ((SELECT ID from Групп_Файл WHERE ID=1)),((SELECT ID from Групп_Файл WHERE ID=11)),((SELECT ID from Групп_Файл WHERE ID=2))
+
+INSERT INTO Устгагдсан_Чаннэл_Файл
+VALUES ((SELECT ID from Чаннэл_Файл WHERE ID=1)),((SELECT ID from Чаннэл_Файл WHERE ID=11)),((SELECT ID from Чаннэл_Файл WHERE ID=2))
