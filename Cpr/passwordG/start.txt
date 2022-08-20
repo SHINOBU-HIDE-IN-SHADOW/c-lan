@@ -1,0 +1,18 @@
+비밀번호 생성기
+목적: 만들기 어려운 비밀번호를 대신 생성해주고 저장해줌
+이용자: 비밀번호를 원하는 모두
+input: 직접, 랜덤, 기본값,원하는 최대 숫자, 기호 추가, 대문자 추가, 최대 숫자, 최대 글자, 버튼 누르기
+		시드, 첫글자 대문자 설정, 띄어쓰기 "_"로 문자 대체,최대 글자, 띄어쓰기 추가
+output: 매뉴창(설정:숫자,기호,글자), 파일 만들기 있으면 위에 추가, 시드
+
+menu:
+	main_menu:
+		Generator 1.default 2.self 3.user setting
+	menu_self:
+		nick_name: initial uppder=True, max alphabet= , max space = , space to _ = Fasle
+		Password setting:  max keys=,max number = ,max alphabet = , max sign = , max upper= 
+	menuend:
+		your id:_____ your password:_____ 
+	deffault:
+		nick_name: initial uppder=True, max alphabet= 1, max space = 1 max, space to _ = Fasle
+		Password setting:  max keys= ,max number = ,max alphabet = , max sign = max 2 , max upper= max 3
